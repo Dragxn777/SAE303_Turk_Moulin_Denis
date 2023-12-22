@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="container scrollx">
+            <section class="home">
+
+                <div class="content">
+                    <h1 class="content__title">NUMERIQUE RESPONSABLE :
+                        <span class="content__span">ET SI NOUS ADOPTIONS LES BONS RÉFLEXES ?</span>
+                    </h1>
+                </div>
+
+                <div class="desc">
+                    <p class="desc__text">
+                        Face aux enjeux d’une société de plus en plus <span id="digit"
+                            class="desc__text__grass">digitalisée</span>
+                        et de plus en plus dépendante des
+                        services numériques,
+                        et indépendamment des bénéfices environnementaux que certains de ces services numériques
+                        peuvent
+                        fournir,
+                        <span id="ademe" class="desc__text__grass"></span><span id="imp"
+                            class="desc__text__grass"></span> négatifs du
+                        numérique et identifier
+                        les leviers pour
+                        les réduire.
+                    </p>
+                </div>
+
+                <lottie-player class="bonh"
+                    src="https://lottie.host/dc21a428-2762-412c-975f-f8847f49107c/8Tp7xSiJIO.json"
+                    background="transparent" speed="1"
+                    style="width: 300px; height: 300px; position: absolute; bottom: 15%; right: 10rem; scale: 1.8;" loop
+                    autoplay></lottie-player>
+
+
+            </section>
+
+            <section id="sec-mine" class="mine">
+                <p class="mine__title">Production de produits numériques très <span class="mine__red">consommatrice de
+                        ressources</span>
+                    par an
+                    dans
+                    le
+                    monde :</p>
+
+                <div class="mine__pioche">
+                    <lottie-player src="https://lottie.host/b43b47c5-d6b5-48a4-a4a8-2bb6423e8d83/uhOzCS9lem.json"
+                        background="transparent" speed="1" style="width: 300px; height: 300px; scale: 2;" loop
+                        autoplay></lottie-player>
+                </div>
+
+                <h2 class="mine__subtitle">La production d’équipements numériques est <span
+                        id="text-anim-mine">extrêmement consommatrice</span>
+                    de ressources naturelles :</h2>
+
+                <div class="mine__chiffres1">
+                    <h2 class="mine__chiffres__pourc"><span>85%</span>: métaux ferreux</h2>
+                </div>
+
+                <div class="mine__chiffres2">
+                    <h2 class="mine__chiffres__pourc"><span>20%</span> : autres substances</h2>
+                </div>
+
+                <div class="mine__chiffres3">
+                    <h2 class="mine__chiffres__pourc"><span>0.5%</span> : métaux précieux</h2>
+                </div>
+
+                <div class="mine__chiffres4">
+                    <h2 class="mine__chiffres__exp">Quantité de matériaux extraits pour les produits du numérique</h2>
+                </div>
+
+                <!-- <div class="mine__map">
+                    <button id="map-btn" onclick="mapShow()">
+                        Voir la carte</button>
+                </div> -->
+
+                <!-- <div id="map" class="show__map"></div>
+                <lottie-player src="https://lottie.host/9a1f6dd2-70cc-4405-b602-07d4f231b276/60ApRYcYcW.json"
+                    background="transparent" speed="1"
+                    style="width: 300px; height: 300px; position: absolute; bottom: -50px; right: 0;" loop
+                    autoplay></lottie-player> -->
+            </section>
+
+            <section class="route">
+                <p class="route__title">Transports des matériaux : <span class="route__red">lourdes émissions de
+                        CO2</span></p>
+
+                <div class="description">
+                    <p class="description__text">
+                        Avant d’arriver dans des magasins totalement immaculés et tout de verre vêtus, les smartphones,
+                        ordinateurs et autres terminaux numériques ont parcouru des <span>milliers de kilomètres</span>
+                        et ont connu
+                        un chaîne de fabrication qui <span>« carbure aux énergies fossiles »</span> : l’extraction
+                        minière de
+                        composants, l’assemblage du produit fini à des
+                        milliers de kilomètres et leur transport vers le lieu de vente.
+                    </p>
+                </div>
+
+                <div class="route__ex1">
+                    <h2>Le monde digital représente <span>3 à 4 %</span> des émissions de gaz à effet de serre du monde.
+                    </h2>
+                </div>
+
+                <div class="route__ex2">
+                    <h2>Le transport routier de marchandises est responsable de <span>16 %</span> de la production
+                        mondiale de CO2
+                    </h2>
+                </div>
+
+                <div class="containerScroll">
+                    <main id="sectionPin">
+                        <div class="pin-wrap-sticky">
+                            <div class="pin-wrap">
+                                <lottie-player class="cam"
+                                    src="https://lottie.host/30b5d92c-1892-4739-a886-94541d2c155f/NYAPo2ptER.json"
+                                    background="transparent" speed="1" style="width: 300px; height: 300px;" loop
+                                    autoplay></lottie-player>
+                            </div>
+                        </div>
+                    </main>
+
+                </div>
+            </section>
+
+            <section class="usine2">
+                <p class="usine2__title">La fabrication des produits éléctroniques : <span class="usine2__red">gros
+                        impact
+                        environnemental négatif</span></p>
+
+                <h2 class="usine2__emission">= total <span class="usine2__red">d'emissions de GES</span> des usines pour
+                    le numérique dans
+                    le monde / an</h2>
+
+                <h2 class="usine2__ex1">La masse de matériaux déplacée durant la phase de fabrication est égale à <span
+                        class="usine2__red">932 kg
+                        / habitant.</span></h2>
+                <h2 class="usine2__ex2">Les matériaux requièrent beaucoup de ressources et d’énergie pour leur
+                    extraction et génèrent beaucoup de déchets.</h2>
+                <h2 class="usine2__ex3">La phase de fabrication qui est la principale source d’impact (<span
+                        class="usine2__red">78 % de l’empreinte carbone</span>).</h2>
+
+                <lottie-player src="https://lottie.host/66cfaeda-436f-4a05-8ca0-4f93836c0dc3/XE2Tce729Q.json"
+                    background="transparent" speed="1"
+                    style="width: 300px; height: 300px; scale: 2.2; position: absolute; bottom: 0; left: 10%;" loop
+                    autoplay></lottie-player>
+            </section>
+
+            <section class="magasin">
+                <p class="magasin__title">Privilégiez<span>le reconditionné</span> plutôt que le
+                    neuf
+                </p>
+                <div class="magasin__desc">
+                    <p class="magasin__desc__text">En 2020, avec des ventes estimées à <span>2,8
+                            millions</span>d’unités,
+                        l’utilisation de
+                        smartphones reconditionnés par les français permet approximativement des économies de <span>229
+                            000
+                            tonnes</span>
+                        de matières premières et <span>70 000 tonnes</span> d’équivalent CO2.</p>
+                </div>
+
+                <div class="magasin__ex1">
+                    <h2>Réduction d’impact environnemental annuel de <span>55 % à 91%</span> pour l'achat d'un
+                        téléphone.
+                    </h2>
+                </div>
+
+                <div class="magasin__ex2">
+                    <h2>Impact environnemental <span>plus de 2 à 4 fois inférieur</span> à celui de la production d’un
+                        équipement
+                        neuf.
+                    </h2>
+                </div>
+
+                <div class="containerScroll">
+                    <main id="sectionPin">
+                        <div class="pin-wrap-sticky2">
+                            <div class="pin-wrap">
+                                <lottie-player class="phone"
+                                    src="https://lottie.host/f957bac3-a0c2-484d-abbd-aa625acfde9d/Au5lqCEOr4.json"
+                                    background="transparent" speed="1" style="width: 300px; height: 300px;" loop
+                                    autoplay></lottie-player>
+                            </div>
+                        </div>
+                    </main>
+
+                </div>
+            </section>
+
+            <section class="poubelle">
+                <p class="magasin__title">Trop de <span>déchets</span> dûs au numérique dans le monde</p>
+
+                <div class="poubelle__ex1">
+                    <h2><span>20 millions de tonnes</span> de déchets produits par an sur l’ensemble du cycle de vie.
+                    </h2>
+                </div>
+
+                <div class="poubelle__ex2">
+                    <h2>La production de déchets est égale à <span>299 kg / habitant</span> sur l’ensemble du cycle de
+                        vie des
+                        équipements (de leur fabrication à leur fin de vie)
+                    </h2>
+                </div>
+
+                <div class="poubelle__ex3">
+                    <h2>Problèmes de <span>surconsommation</span> qui entraînent beaucoup de déchets évitables.
+                    </h2>
+                </div>
+
+                <lottie-player src="https://lottie.host/50f882c8-d21b-4229-b6f4-b43c5819de2a/waazK0uael.json"
+                    background="transparent" speed="1"
+                    style="width: 300px; height: 300px; position: absolute; top: 30%; scale: 1.2;" loop
+                    autoplay></lottie-player>
+            </section>
+
+
+        </div>
+
+        <script src="script_text_anim.js"></script>
+        <script src="script_gsap.js"></script>
+        <script src="anime.min.js"></script>
+</body>
+
+</html>

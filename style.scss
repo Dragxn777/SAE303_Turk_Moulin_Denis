@@ -1,0 +1,749 @@
+@font-face {
+    font-family: 'alegreya_sans_scbold';
+    src: url('/fonts/alegreyasanssc-bold-webfont.woff') format('woff'),
+        url('/fonts/alegreyasanssc-bold-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'october_nightregular';
+    src: url('/fonts/october_night-webfont.woff2') format('woff2'),
+        url('/fonts/october_night-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$colors: (
+    "brown": hsl(27, 43%, 60%),
+    "red": hsl(0, 100%, 50%),
+    "black": hsl(0, 0%, 0%),
+    "white": hsl(0, 0%, 100%)
+);
+
+$fs: (
+    "m": 1rem,
+    "l": 1.2rem,
+    "xl": 1.5rem,
+    "xxl": 2rem,
+);
+
+
+$Alegrya : 'alegreya_sans_scbold';
+$OctoberNight: 'october_nightregular';
+
+body {
+    font-family: 'alegreya_sans_scbold';
+
+}
+
+.wrapper {
+    overflow-x: hidden;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    width: 600vw;
+}
+
+.home,
+.mine,
+.route,
+.usine2,
+.magasin,
+.poubelle {
+    display: flex;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+@supports (animation-timeline: view()) {
+    @keyframes move {
+        to {
+            /* Move horizontally so that right edge is aligned against the viewport */
+            transform: translateX(calc(-100% + 100vw));
+        }
+    }
+
+    @keyframes moveRev {
+        to {
+            transform: translateX(calc(100% + 100vw));
+        }
+    }
+
+    #sectionPin {
+        /* Stretch it out, so that we create room for the horizontal scroll animation */
+        height: 500vh;
+        /* To make position sticky work … */
+
+        view-timeline-name: --section-pin-tl;
+        view-timeline-axis: block;
+    }
+
+    .pin-wrap-sticky {
+        /* Stick to Top */
+        height: 100vh;
+        position: absolute;
+        width: 120vw;
+        overflow-x: hidden;
+        left: -25rem;
+        top: 70%;
+    }
+
+    .pin-wrap-sticky2 {
+        /* Stick to Top */
+        height: 100vh;
+        position: absolute;
+        width: 120vw;
+        overflow-x: hidden;
+        left: -60rem;
+        top: 60%;
+    }
+
+    .pin-wrap {
+        height: 100vh;
+        position: absolute;
+
+        /* Hook animation */
+        will-change: transform;
+        animation: linear move forwards;
+
+        /* Link animation to view-timeline */
+        animation-timeline: --section-pin-tl;
+        animation-range: contain 100% contain 700%;
+    }
+
+    .pin-wrap>* {
+        min-width: 60vmax;
+        padding: 0 5vmax;
+    }
+
+    .cam {
+        will-change: transform;
+        animation: linear moveRev forwards;
+
+        position: absolute;
+        left: 0;
+
+        animation-timeline: --section-pin-tl;
+        animation-range: contain 0% contain 400%;
+    }
+
+    .phone {
+        will-change: transform;
+        animation: linear moveRev forwards;
+
+        position: absolute;
+        left: 0;
+
+        animation-timeline: --section-pin-tl;
+        animation-range: contain 0% contain 400%;
+    }
+
+}
+
+
+
+
+.home {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    background: rgba(210, 159, 142, 0.432);
+    background-blend-mode: multiply;
+    background-image: url('/assets/home.png');
+    background-size: cover;
+    z-index: 100;
+
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+
+    &__title {
+        font-family: 'alegreya_sans_scbold';
+        width: 70%;
+        position: absolute;
+        height: auto;
+        background-color: map-get($map: $colors, $key: "brown");
+        margin-top: 2rem;
+        padding: 1rem 8rem;
+        border-radius: 15px;
+        box-shadow: 5px 5px 1px black;
+        font-size: map-get($map: $fs, $key: xxl);
+        text-align: center;
+        color: white;
+    }
+
+    &__span {
+        color: black;
+        text-decoration: underline;
+    }
+
+}
+
+.desc {
+    position: absolute;
+    width: 100%;
+
+    &__text {
+        background-color: #AEAEA1;
+        position: absolute;
+        align-items: center;
+
+        padding: 1.5rem;
+        border-radius: 10px;
+        top: 13rem;
+        margin-left: 1rem;
+        width: 22%;
+        height: auto;
+        color: rgb(255, 255, 255);
+        letter-spacing: 1px;
+        font-size: 1.5rem;
+
+        &__grass {
+            font-weight: 900;
+            color: hsl(0, 100%, 50%);
+        }
+    }
+}
+
+.mine {
+    background-color: rgba(2, 110, 49, 0.553);
+    background-blend-mode: multiply;
+    background-image: url('/assets/mine.png');
+    justify-content: center;
+    background-size: cover;
+    position: relative;
+
+    &__title {
+        font-family: 'alegreya_sans_scbold';
+        position: absolute;
+        width: 70%;
+        height: auto;
+        background-color: map-get($map: $colors, $key: "brown");
+        margin-top: 2rem;
+        padding: 1rem 8rem;
+        border-radius: 15px;
+        box-shadow: 5px 5px 1px black;
+        font-size: 2rem;
+        text-align: center;
+        color: map-get($map: $colors, $key: "white");
+    }
+
+    &__red {
+        color: red;
+    }
+
+    &__subtitle {
+        font-size: 1.8rem;
+        position: absolute;
+        top: 30%;
+        width: 80%;
+        text-align: center;
+        color: map-get($map: $colors, $key: "white");
+
+        & span {
+            color: red;
+            font-size: 2.2rem;
+        }
+    }
+
+    &__pioche {
+        position: absolute;
+        bottom: 0;
+        filter: grayscale(70%);
+    }
+
+    &__chiffres1 {
+        position: absolute;
+        bottom: 20.5rem;
+        left: 15.5rem;
+        color: map-get($map: $colors, $key: "white");
+        padding: 0.8rem;
+        background: rgba(2, 110, 49, 0.268);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        & span {
+            color: map-get($map: $colors, $key: "red");
+            font-size: 1.8rem;
+        }
+    }
+
+    &__chiffres2 {
+        position: absolute;
+        bottom: 20.5rem;
+        color: map-get($map: $colors, $key: "white");
+        padding: 0.8rem;
+        background: rgba(2, 110, 49, 0.268);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        & span {
+            color: map-get($map: $colors, $key: "red");
+            font-size: 1.8rem;
+
+        }
+    }
+
+    &__chiffres3 {
+        position: absolute;
+        bottom: 20.5rem;
+        right: 15.5rem;
+        color: map-get($map: $colors, $key: "white");
+        padding: 0.8rem;
+        background: rgba(2, 110, 49, 0.268);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        & span {
+            color: map-get($map: $colors, $key: "red");
+            font-size: 1.8rem;
+
+        }
+    }
+
+    &__chiffres4 {
+        position: absolute;
+        bottom: 5rem;
+        left: 5rem;
+        width: 30%;
+        text-align: center;
+        color: map-get($map: $colors, $key: "white");
+        padding: 0.8rem;
+        background: hsla(27, 43%, 60%, 0.727);
+
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    &__map {
+        position: absolute;
+        bottom: 30%;
+        right: 6%;
+        padding: 0.8rem;
+        color: white;
+
+        background: hsla(27, 43%, 60%, 0.727);
+
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        &__map:hover {
+            cursor: pointer;
+        }
+    }
+
+
+}
+
+
+#map-btn {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 1rem;
+    font-family: 'alegreya_sans_scbold';
+
+}
+
+#map-btn:hover {
+    cursor: pointer;
+}
+
+.show__map {
+    position: absolute;
+
+    background-image: url('/assets/map.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+
+
+
+.route {
+    background-image: url('assets/route.png');
+    background-size: cover;
+    justify-content: center;
+
+    &__title {
+        font-family: 'alegreya_sans_scbold';
+        position: absolute;
+        width: 70%;
+        height: auto;
+        background-color: map-get($map: $colors, $key: "brown");
+        margin-top: 2rem;
+        padding: 1rem 8rem;
+        border-radius: 15px;
+        box-shadow: 5px 5px 1px black;
+        font-size: 2rem;
+        text-align: center;
+        color: map-get($map: $colors, $key: "white");
+    }
+
+    &__red {
+        color: map-get($map: $colors, $key: "red");
+    }
+
+    &__ex1 {
+        position: absolute;
+        top: 30%;
+        right: 10%;
+        width: 50%;
+        text-align: center;
+        color: white;
+
+        background: #5db2c9e1;
+        padding: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        & span {
+            color: red;
+            font-size: 1.8rem;
+        }
+    }
+
+    &__ex2 {
+        position: absolute;
+        bottom: 30%;
+        right: 10%;
+        width: 50%;
+        text-align: center;
+        color: white;
+
+        background: #5db2c9e1;
+        padding: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        & span {
+            color: red;
+            font-size: 1.8rem;
+        }
+    }
+
+}
+
+.description {
+    position: absolute;
+    width: 100%;
+
+
+
+    &__text {
+        position: absolute;
+        align-items: center;
+
+        background: #5db2c97a;
+
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+
+        padding: 1.5rem;
+        border-radius: 10px;
+        top: 10rem;
+        margin-left: 5rem;
+        width: 22%;
+        height: auto;
+        color: map-get($map: $colors, $key: "white");
+        letter-spacing: 1px;
+        font-size: 1.5rem;
+
+        & span {
+            color: red;
+        }
+    }
+
+}
+
+
+
+.usine2 {
+    background: rgba(47, 79, 79, 0.455);
+    background-blend-mode: multiply;
+    background-image: url('assets/usine2.png');
+    background-size: cover;
+    justify-content: center;
+
+    &__title {
+        position: absolute;
+        width: 70%;
+        height: auto;
+        background-color: map-get($map: $colors, $key: "brown");
+        margin-top: 2rem;
+        padding: 1rem 8rem;
+        border-radius: 15px;
+        box-shadow: 5px 5px 1px black;
+        font-size: 2rem;
+        text-align: center;
+        color: map-get($map: $colors, $key: "white");
+    }
+
+    &__red {
+        color: red;
+    }
+
+    &__emission {
+        font-family: 'october_nightregular';
+        position: absolute;
+        bottom: 25%;
+        left: 25%;
+        width: 30%;
+        font-size: 2rem;
+        color: white;
+
+        padding: 1rem;
+        background: #1f6a5e7a;
+        box-shadow: 0 8px 32px 0 rgba(31, 135, 92, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    &__ex1,
+    &__ex2,
+    &__ex3 {
+        position: absolute;
+        color: white;
+        width: 30%;
+        text-align: center;
+
+        background: #1f6a5e7a;
+        padding: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        & span {
+            color: red;
+            font-size: 1.8rem;
+        }
+    }
+
+    &__ex1 {
+        right: 10%;
+        top: 30%;
+    }
+
+    &__ex2 {
+        right: 10%;
+        top: 50%;
+        background: #1b937f7a;
+
+    }
+
+    &__ex3 {
+        right: 10%;
+        top: 73%;
+    }
+
+}
+
+.magasin {
+    background-image: url('assets/magasin.png');
+    background-size: cover;
+    justify-content: center;
+
+    &__title {
+        position: absolute;
+        width: 70%;
+        height: auto;
+        background-color: map-get($map: $colors, $key: "brown");
+        margin-top: 2rem;
+        padding: 1rem 8rem;
+        border-radius: 15px;
+        box-shadow: 5px 5px 1px black;
+        font-size: 2rem;
+        text-align: center;
+        color: map-get($map: $colors, $key: "white");
+    }
+
+    & span {
+        color: red;
+    }
+
+    &__desc {
+        position: absolute;
+        width: 100%;
+
+        &__text {
+            background-color: #29aed2;
+            position: absolute;
+            align-items: center;
+
+            padding: 1.5rem;
+            border-radius: 10px;
+            top: 13rem;
+            margin-left: 1rem;
+            width: 25%;
+            height: auto;
+            color: rgb(255, 255, 255);
+            letter-spacing: 1px;
+            font-size: 1.5rem;
+
+            & span {
+                font-weight: 900;
+                color: hsl(0, 100%, 50%);
+            }
+        }
+    }
+
+    &__ex1,
+    &__ex2 {
+        position: absolute;
+        color: white;
+        width: 30%;
+        text-align: center;
+
+        background: #29aed2;
+        padding: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        & span {
+            color: red;
+            font-size: 1.8rem;
+        }
+    }
+
+    &__ex1 {
+        right: 15%;
+        top: 30%;
+        width: 50%;
+    }
+
+    &__ex2 {
+        right: 5%;
+        top: 50%;
+        width: 50%;
+
+    }
+}
+
+.poubelle {
+    background-size: cover;
+    justify-content: center;
+    background: rgba(47, 79, 79, 0.455);
+    background-image: url("assets/poubelle.png");
+    background-blend-mode: multiply;
+
+    &__title {
+        position: absolute;
+        width: 70%;
+        height: auto;
+        background-color: map-get($map: $colors, $key: "brown");
+        margin-top: 2rem;
+        padding: 1rem 8rem;
+        border-radius: 15px;
+        box-shadow: 5px 5px 1px black;
+        font-size: 2rem;
+        text-align: center;
+        color: map-get($map: $colors, $key: "white");
+    }
+
+    & span {
+        color: red;
+    }
+
+
+    &__ex1,
+    &__ex2,
+    &__ex3 {
+        position: absolute;
+        color: white;
+        width: 30%;
+        text-align: center;
+
+        background: #47856f;
+        padding: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+
+        & span {
+            color: red;
+            font-size: 1.8rem;
+        }
+    }
+
+    &__ex1 {
+        left: 15%;
+        top: 30%;
+        width: 25%;
+    }
+
+    &__ex2 {
+        right: 10%;
+        top: 30%;
+        width: 30%;
+
+    }
+
+    &__ex3 {
+        bottom: 5%;
+        width: 25%;
+
+    }
+}
